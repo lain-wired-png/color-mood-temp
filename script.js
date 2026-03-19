@@ -1,16 +1,13 @@
 const button = document.getElementById("changeBtn");
 const message = document.getElementById("message");
 
-const moods = [
-  { color: "lightblue", text: "Now the mood is calm and blue." },
-  { color: "lightpink", text: "Now the mood is soft and pink." },
-  { color: "lightgreen", text: "Now the mood is fresh and green." },
-];
-
-let index = 0;
+function getRandomColor() {
+  const colors = ["red", "blue", "green", "purple", "orange"];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
 
 button.addEventListener("click", function () {
-  document.body.style.backgroundColor = moods[index].color;
-  message.textContent = moods[index].text;
-  index = (index + 1) % moods.length;
+  const color = getRandomColor();
+  document.body.style.backgroundColor = color;
+  message.textContent = "Mood changed to " + color;
 });
